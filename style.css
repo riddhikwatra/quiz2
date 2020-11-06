@@ -74,6 +74,7 @@ body{
     color: rgb(4, 4, 39);
 }
 #score{
+    font-weight: bold;
     margin: auto;
     font-size: xx-large;
     color: #22223b;
