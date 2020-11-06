@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz-2</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400&display=swap" rel="stylesheet">  
+</head>
+<body id="body">
+    <div class="heading">
+        <h1 class="head">
+            Intelligent Quiz!!!!
+        </h1>
+        <hr>
+    </div>
+    <div class="container" id="container">
+        <div>
+            <span id="score"></span>
+        </div>
+        <div id="quiz">
+            <div class="content">
+                <div class="ques">
+                        <p id="ques1">Which one of the following river flows between Vindhyan and Satpura ranges?</p>
+                </div>
+                <div class="options">
+                    <input type="radio" name="answer1" id="opt11" value="Narmada">
+                    <label for="1" id="option11">Narmada</label>
+                    <br>
+                    <input type="radio" name="answer1" id="opt12" value='Mahanadi'>
+                    <label for="2" id="option12">Mahanadi</label>
+                    <br>
+                    <input type="radio" name="answer1" id="opt13" value="Son">
+                    <label for="3" id="option13">Son</label>
+                    <br>
+                    <input type="radio" name="answer1" id="opt14" value="Netravati">
+                    <label for="4" id="option14">Netravati</label>
+                    <br>
+                </div>
+            </div>
+            <div class="content">
+                <div class="ques">
+                    <p id="ques2">How many weekdays in a week?</p>
+                </div>
+                <div class="options">
+                    <input type="radio" name="answer2" id="opt21" value="6 days">
+                    <label for="1" id="option21">6 days</label>
+                    <br>
+                    <input type="radio" name="answer2" id="opt22" value="4 days">
+                    <label for="2" id="option22">4 days</label>
+                    <br>
+                    <input type="radio" name="answer2" id="opt23" value="7 days">
+                    <label for="3" id="option23">7 days</label>
+                    <br>
+                    <input type="radio" name="answer2" id="opt24" value="5 days">
+                    <label for="4" id="option24">5 days</label>
+                    <br>
+            </div>
+            </div>
+            <div class="content">
+                <div class="ques">
+                    <p id="ques3">"Which type of vegetable that Popeyes often uses as a last-minute device to give him formidable strength?"</p>
+                </div>
+                <div class="options">
+                    <input type="radio" name="answer3" id="opt31" value="Broccoli">
+                    <label for="1" id="option31">Broccoli</label>
+                    <br>
+                    <input type="radio" name="answer3" id="opt32" value="Spinach">
+                    <label for="2" id="option32">Spinach</label>
+                    <br>
+                    <input type="radio" name="answer3" id="opt33" value="Cabbage">
+                    <label for="3" id="option33">Cabbage</label>
+                    <br>
+                    <input type="radio" name="answer3" id="opt34" value="Raddish">
+                    <label for="4" id="option34">Raddish</label>
+                    <br>
+                </div>
+            </div>
+            <div class="content">
+                <div class="ques">
+                    <p id="ques4">The Powerpuff Girls are 3 distinct colors. What are they?</p>
+                </div>
+                <div class="options">
+                    <input type="radio" name="answer4" id="opt41" value="Red, yellow, green">
+                    <label for="1" id="option41">Red, yellow, green</label>
+                    <br>
+                    <input type="radio" name="answer4" id="opt42" value="Yellow, blue, green">
+                    <label for="2" id="option42">Yellow, blue, green</label>
+                    <br>
+                    <input type="radio" name="answer4" id="opt43" value="Blue, green, red">
+                    <label for="3" id="option43">Blue, green, red</label>
+                    <br>
+                    <input type="radio" name="answer4" id="opt44"value="Green, purple, orange">
+                    <label for="4" id="option44">Green, purple, orange</label>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div id="end">
+            <button class="btn" id="submit">Submit</button>
+        </div>
+    </div>
+</body>
+<script>
+    
+const submit_btn=document.getElementById("submit");
+const quiz=document.getElementById("quiz");
+submit_btn.addEventListener('click',submit);
+
+var totalQues=4;
+function submit(){
+    var user_score=0;
+
+    quiz.classList.add('hide');
+    end.classList.add('hide');
+
+    document.getElementById('body').style.height="100vh";
+    document.getElementById('container').style.height="80vh";
+    for(i=0;i<totalQues;i++){
+        var name="answer"+(i+1).toString();
+        var values=document.getElementsByName(name);
+        if(i==0){
+            if(values[0].checked){
+                user_score+=1;
+            }
+        }
+        else if(i==1&&values[3].checked){
+            user_score+=1;
+        }
+        else if(i==2&&values[1].checked){
+            user_score+=1;
+        }
+        else{
+            if(values[2].checked){
+                user_score+=1;
+            }
+        }   
+        document.getElementById('score').innerHTML="Congratulations!!<br><br>You scored"+user_score.toString()+"/"+totalQues.toString()+"!!";
+    }
+}
+</script>
+</html>
+
+
